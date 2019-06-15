@@ -1,21 +1,22 @@
 <template>
   <ul>
     <li
-      v-for="tag in sortedTags"
+      v-for="(tag, idx) in sortedTags"
       :key="tag.id"
       @mouseover="highlightOverlay(tag.id, true, 'active')"
       @mouseleave="highlightOverlay(tag.id, false, 'active')">
-
-      <canvas :ref="`canvas-${tag.id}`" style="height: 50px;"></canvas>
-
+      <div>
+        <canvas :ref="`canvas-${tag.id}`" style="height: 50px;"></canvas>
+        <div><input type="text" v-model="tag.label" v-on:click="updateLabel(tag)" v-on:mouseleave="updateLabel(tag)"></div>
+      </div>
       <div v-if="!(disableComplete && task.complete)">
-        <button
+        <!-- <button
           v-if="selectionsEditable"
           aria-label="Edit"
           @click="editTag(tag)"
           class="lv-btn lv-btn-control hint--left hint--no-animate">
           <icon name="pencil"></icon>
-        </button>
+        </button> -->
         <button
           @click="deleteTag(tag)"
           @mouseover="highlightOverlay(tag.id, true, 'danger')"
@@ -67,6 +68,11 @@ export default {
   },
 
   methods: {
+
+    updateLabel (tag, idx) {
+      // tag.label = this.labels[idx]
+      this.$emit('updateLabel', this.task, tag.id, tag.label)
+    },
     /**
      * Edit a selection.
      * @param {Object} tag
@@ -129,6 +135,9 @@ export default {
         let rectB = getRectFromFragment(b.target.selector.value)
         return rectA.y - rectB.y
       })
+      for (var tag of sortedTags) {
+        this.labels.push(tag.label)
+      }
       return sortedTags
     }
   },
@@ -147,6 +156,12 @@ export default {
   beforeDestroy () {
     if (typeof window !== 'undefined') {
       window.removeEventListener('resize', this.drawSelections)
+    }
+  },
+
+  data: function () {
+    return {
+      labels: []
     }
   }
 }

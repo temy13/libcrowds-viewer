@@ -3,6 +3,7 @@ import errors from '@/utils/errors'
 
 /**
  * Represents a task to be updated with user input as annotations.
+ * <Image>
  */
 class Task {
   constructor ({
@@ -37,7 +38,6 @@ class Task {
     this.complete = complete
     this.thumbnailUrl = thumbnailUrl
     this.bounds = bounds
-
     // Validate
     const validModes = ['select', 'transcribe']
 

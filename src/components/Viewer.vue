@@ -126,7 +126,8 @@
           :selectionsEditable="selectionsEditable"
           :viewer="viewer"
           @edit="editTag"
-          @delete="deleteTag">
+          @delete="deleteTag"
+          @updateLabel="updateTagLabel">
         </select-sidebar-item>
 
         <transcribe-sidebar-item
@@ -202,7 +203,7 @@ export default {
       },
       defaultSidebarButtons: {
         note: 'Add a note',
-        submit: 'Submittt'
+        submit: 'Submit'
       },
       showInfoModal: false,
       showHelpModal: this.showHelpOnMount,
@@ -626,6 +627,12 @@ export default {
       )
       this.selectionRect = rect
       this.deleteTag(task, id)
+    },
+
+    updateTagLabel (task, id, label) {
+      this.annotator.updateAnnotationLabel(task, id, label)
+      const anno = this.annotator.getAnnotation(task, id)
+      this.$emit('update', task, anno)
     },
 
     /**

@@ -29,6 +29,7 @@ class Annotation {
     this.target = target
     this.created = new Date().toISOString()
     this.generated = new Date().toISOString()
+    this.label = ''
   }
 
   /**

@@ -142,6 +142,16 @@ class Annotator {
     return idx > -1 ? task.annotations[idx] : null
   }
 
+  updateAnnotationLabel (task, id, label) {
+    const filtered = task.annotations.filter((anno) => {
+      return anno.id === id
+    })
+    const idx = task.annotations.indexOf(filtered[0])
+    var anno = filtered[0]
+    anno.label = label
+    task.annotations.splice(idx, 1, anno)
+  }
+
   /**
    * Add or update an Annotation.
    * @param {Task} task
