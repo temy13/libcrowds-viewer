@@ -1,9 +1,10 @@
 .DS_Store
 node_modules/
 demo/node_modules/
-dist/
+# dist/
 demo/dist/
 npm-debug.log
 yarn-error.log
 coverage/
 _book/
+yarn.lock

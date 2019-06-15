@@ -1,0 +1,134 @@
+.lv-selector {
+  background-color: $lv-selection-bg;
+  position: absolute;
+  z-index: 1;
+  display: none;
+
+  .lv-border {
+    background: $lv-selection-border;
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    margin: 0px;
+    padding: 0px;
+
+    &.lv-border-top {
+      width: 100%;
+      top: 0;
+
+      .lv-handle {
+        cursor: ns-resize;
+      }
+    }
+
+    &.lv-border-right {
+      height: 100%;
+      right: 0;
+
+      .lv-handle {
+        cursor: ew-resize;
+      }
+    }
+
+    &.lv-border-bottom {
+      width: 100%;
+      bottom: 0;
+
+      .lv-handle {
+        cursor: ns-resize;
+      }
+    }
+
+    &.lv-border-left {
+      height: 100%;
+      left: 0;
+
+      .lv-handle {
+        cursor: ew-resize;
+      }
+    }
+
+    .lv-handle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 6px;
+      height: 6px;
+      margin: -4px 0 0 -4px;
+      background: #FFF;
+      border: 1px solid $lv-blue;
+    }
+  }
+
+  .lv-corner {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #FFF;
+    border: 1px solid $lv-blue;
+
+    &.lv-corner-top-right {
+      top: -3px;
+      right: -3px;
+      cursor: nesw-resize;
+    }
+
+    &.lv-corner-bottom-right {
+      bottom: -3px;
+      right: -3px;
+      cursor: nwse-resize;
+    }
+
+    &.lv-corner-bottom-left {
+      bottom: -3px;
+      left: -3px;
+      cursor: nesw-resize;
+    }
+
+    &.lv-corner-top-left {
+      top: -3px;
+      left: -3px;
+      cursor: nwse-resize;
+    }
+  }
+}
+
+.lv-selection-buttons {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  text-align: end;
+
+  .lv-btn {
+    padding: 2px;
+    border: none;
+    display: inline-block;
+
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      width: 100%; // Unfortunate IE hack to sort out button placement
+    }
+
+    svg {
+      margin-left: auto;
+    }
+
+    /* Scale icon size dynamically */
+    .fa-icon {
+      width: auto;
+      height: 42px;
+      min-height: 42px;
+
+      @media screen and (min-width: 576px) {
+        height: 28px;
+        min-height: 28px;
+        display: flex;
+        flex-direction: row;
+      }
+    }
+
+    .lv-icon-white {
+      color: $lv-white;
+    }
+  }
+}

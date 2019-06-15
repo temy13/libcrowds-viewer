@@ -1,0 +1,25 @@
+.overlay {
+  z-index: 1;
+  box-sizing: border-box;
+
+  &.selection, {
+    background-color: $lv-selection-confirmed-bg;
+    border: 1px solid $lv-selection-confirmed-border;
+    transition: background-color 800ms, border 800ms;
+  }
+
+  &.related {
+    background-color: $lv-selection-related-bg;
+    border: 1px solid $lv-selection-related-border;
+  }
+
+  &.danger {
+    background-color: $lv-selection-danger-bg !important;
+    border: 1px solid $lv-selection-danger-border !important;
+  }
+
+  &.active {
+    background-color: $lv-selection-active-bg;
+    border: 1px solid $lv-selection-active-border;
+  }
+}

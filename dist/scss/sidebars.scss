@@ -1,0 +1,139 @@
+.lv-sidebar {
+  font-size: $lv-font-size-sm;
+  color: $lv-white;
+  background-color: $lv-sidebar-bg;
+  transition: width 350ms;
+  overflow-y: auto;
+  border-top: 1px solid $lv-sidebar-border;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  position: relative;
+
+  @media screen and (min-width: 768px) {
+    height: 100%;
+    width: 320px;
+    border-top: none;
+  }
+
+  .lv-sidebar-header {
+    padding: $lv-sidebar-padding-y $lv-sidebar-padding-x;
+    display: none;
+
+    @media screen and (min-width: 768px) {
+      display: block;
+    }
+
+    h3 {
+      text-transform: uppercase;
+    }
+  }
+
+  .lv-sidebar-content {
+    display: none;
+    padding:  $lv-sidebar-padding-y $lv-sidebar-padding-x 0 $lv-sidebar-padding-x;
+    flex: 1 1 auto;
+    flex-direction: column;
+    position: relative;
+
+    &.display-xs {
+      display: block;
+    }
+
+    @media screen and (min-width: 768px) {
+      display: flex;
+      overflow-y: auto;
+      min-height: 100px;
+      padding: $lv-sidebar-padding-y $lv-sidebar-padding-x;
+    }
+
+    ul {
+      margin-bottom: 0;
+      overflow-y: auto;
+      flex: 1 1 auto;
+      list-style: none;
+      padding: 0;
+      border: 1px solid darken($lv-sidebar-border, 10%);
+      transition: opacity 250ms;
+
+      &:empty {
+        opacity: 0;
+      }
+
+      li {
+        padding: 0.8rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid darken($lv-sidebar-border, 25%);
+
+        &>* {
+          display: inline-block;
+        }
+      }
+    }
+
+    .buttons {
+      display: flex;
+      flex: 0 0 33.3333%;
+    }
+
+    .lv-btn {
+      display: flex;
+      margin-right: auto;
+      margin-left: auto;
+
+      &:last-child {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+
+  .lv-sidebar-footer {
+    bottom: 0;
+    background: $lv-sidebar-bg;
+    padding: $lv-sidebar-padding-y $lv-sidebar-padding-x;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: block;
+
+    @media screen and (min-width: 768px) {
+      border-top: 1px solid $lv-sidebar-border;
+      margin-top: 1rem;
+      overflow: auto;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+
+      &:not(:last-child) {
+        margin-bottom: 0.6rem;
+      }
+    }
+
+    .lv-btn-note {
+      display: none;
+
+      @media screen and (min-width: 768px) {
+        display: block;
+      }
+    }
+
+    .lv-note {
+      padding: 0.5rem;
+      margin-bottom: 0.6rem;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 100%;
+      display: none;
+
+      @media screen and (min-width: 768px) {
+        display: block;
+      }
+    }
+  }
+}

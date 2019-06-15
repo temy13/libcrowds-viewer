@@ -1,0 +1,101 @@
+.lv-btn {
+  cursor: default;
+  padding: 8px 26px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  touch-action: manipulation;
+  border: none;
+  border-radius: 0;
+  transition: 250ms opacity;
+
+  @each $color, $value in $btn-colors {
+    &.lv-btn-#{$color} {
+      color: $lv-white;
+      background-color: $value;
+      border-color: $value;
+
+      &:hover,
+      &:focus {
+        background-color: darken($value, 10%);
+        border-color: darken($value, 10%);
+      }
+
+      &:disabled,
+      &:disabled:hover,
+      &:disabled:focus,
+      &[disabled],
+      &[disabled]:hover,
+      &[disabled]:focus {
+        cursor: not-allowed;
+        opacity: 0.6;
+        background-color: $value;
+        border-color: $value;
+      }
+
+    }
+    &.lv-btn-#{$color}-inverse {
+      color: $value;
+      background-color: transparent;
+      border: 1px solid $value;
+
+      &:disabled,
+      &:disabled:hover,
+      &:disabled:focus,
+      &[disabled],
+      &[disabled]:hover,
+      &[disabled]:focus {
+        cursor: not-allowed;
+        opacity: 0.6;
+      }
+    }
+  }
+
+  &.lv-btn-control {
+    color: $lv-white;
+    display: flex;
+    background: none;
+    text-shadow: 0 0 5px #000000;
+    font-size: $lv-font-size-lg;
+    padding: 0.5rem;
+    border: none;
+    outline: none !important;
+    opacity: 0.8;
+    margin: 0;
+
+    @media screen and (min-width: 768px) {
+      padding: $lv-sidebar-padding-y $lv-sidebar-padding-x;
+    }
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+  }
+
+  &.lv-btn-block {
+    width: 100%;
+    display: block;
+  }
+
+  &.lv-btn-hud {
+    color: $lv-white;
+    display: flex;
+    justify-content: center;
+    border: none;
+    padding: 5px;
+    z-index: 2;
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.75);
+
+    svg {
+      display: flex;
+      height: 100%;
+      opacity: 0.8;
+    }
+
+    &[disabled] {
+      opacity: 0.2;
+    }
+  }
+}
