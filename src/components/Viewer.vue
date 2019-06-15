@@ -202,7 +202,7 @@ export default {
       },
       defaultSidebarButtons: {
         note: 'Add a note',
-        submit: 'Submit'
+        submit: 'Submittt'
       },
       showInfoModal: false,
       showHelpModal: this.showHelpOnMount,
